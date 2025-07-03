@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/carousel";
 
 // Komponen Card untuk setiap Kategori
-function CategoryCard({ id, name, imageUrl }: { id: number; name: string; imageUrl: string }) {
+function CategoryCard({ name, imageUrl }: {name: string; imageUrl: string }) {
   // Kita akan buat slug dari nama kategori untuk URL, atau bisa gunakan ID
   const slug = name.toLowerCase().replace(/\s+/g, '-');
 
@@ -85,7 +85,6 @@ export default async function CategoryPage() {
             categories.map((category) => (
               <CategoryCard
                 key={category.id}
-                id={category.id}
                 name={category.name}
                 imageUrl={category.imageUrl}
               />

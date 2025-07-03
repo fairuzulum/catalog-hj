@@ -5,10 +5,11 @@ import { notFound } from "next/navigation";
 import BackButton from "@/components/BackButton";
 import ProductImageGallery from "@/components/ProductImageGallery";
 import ProductCard from "@/components/ProductCard";
-import { Product } from "@/lib/types"; // <-- Pastikan Product diimpor
+import { Product } from "@/lib/types";
 import { marked } from "marked";
 
-export default async function ProductDetailPage({ params }: { params: { id: string } }) {
+//                                       👇 PERUBAHAN DI SINI: params adalah sebuah Promise
+export default async function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const product = await getProductById(id);
 
@@ -16,9 +17,7 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
     notFound();
   }
 
-  // Deklarasikan variabel dengan tipe yang jelas
-  let otherProducts: Product[] = []; 
-
+  let otherProducts: Product[] = [];
   if (product.categories && product.categories.length > 0) {
     const categoryName = product.categories[0].name;
     const allProductsInCategory = await getProductsByCategory(categoryName);

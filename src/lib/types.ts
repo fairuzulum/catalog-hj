@@ -57,6 +57,7 @@ export interface ApiImage {
     data: {
       id: number;
       name: string;
+      deskripsi: string | null;
       images: ApiImage[];
       categories: ProductCategory[];
     }[];

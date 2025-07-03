@@ -50,7 +50,7 @@ export default function ProductList({ initialProducts, categoryName }: ProductLi
           ) : (
             <div className="text-center py-20">
               <p className="text-lg text-gray-500">
-                Produk tidak ditemukan untuk pencarian "{searchQuery}".
+                Produk tidak ditemukan untuk pencarian {searchQuery}.
               </p>
             </div>
           )}
